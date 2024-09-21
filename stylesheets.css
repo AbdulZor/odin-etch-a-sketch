@@ -20,7 +20,11 @@ body {
     border-style: solid;
     border-width: 1px;
     border-color: black;
-    
+
     display: flex;
     flex-wrap: wrap;
+}
+
+.color {
+    background-color: yellow;
 }

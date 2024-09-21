@@ -20,9 +20,14 @@ function createGrid() {
             const squareDiv = document.createElement('div');
             const borderSize = getComputedStyle(grid, null).borderLeftWidth.slice(0, -2); // get only number (exclude 'px')
 
-            squareDiv.style.width = "" + (grid.offsetWidth / gridSize) - (borderSize * 2 / gridSize) + "px";
-            squareDiv.style.height = "" + (grid.offsetWidth / gridSize) - (borderSize * 2 / gridSize) + "px";
-            squareDiv.style.border = "solid 1px black";
+            squareDiv.style.width = '' + (grid.offsetWidth / gridSize) - (borderSize * 2 / gridSize) + 'px';
+            squareDiv.style.height = '' + (grid.offsetWidth / gridSize) - (borderSize * 2 / gridSize) + 'px';
+            squareDiv.style.border = 'solid 1px black';
+
+            squareDiv.addEventListener('mouseover', () => {
+                console.log('hovered over grid square!');
+                squareDiv.className = 'color';
+            });
             
             grid.appendChild(squareDiv);
         }
