@@ -11,9 +11,8 @@
 //                  style border black 1px solid
 //                  append element to grid node
 
-function createGrid() {
+function createGrid(gridSize) {
     const grid = document.querySelector('.grid');
-    const gridSize = 16;
 
     for (let i = 0; i < gridSize; i++) {
         for (let i = 0; i < gridSize; i++) {
@@ -28,10 +27,28 @@ function createGrid() {
                 console.log('hovered over grid square!');
                 squareDiv.className = 'color';
             });
-            
+
             grid.appendChild(squareDiv);
         }
     }
 }
 
-createGrid();
+function clearGrid() {
+    const grid = document.querySelector('.grid');
+    grid.replaceChildren();
+}
+
+const button = document.querySelector('button');
+button.addEventListener('click', () => {
+    const input = prompt('Grid Size (max 100):');
+
+    if (input <= 0 || input >= 100) {
+        console.log("Grid size is negative or bigger than 100");
+        return;
+    }
+
+    clearGrid();
+    createGrid(input);
+});
+
+createGrid(16);
